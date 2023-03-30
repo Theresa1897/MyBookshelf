@@ -8,30 +8,57 @@
 </head>
 <body>
     <container>
+        <!-- ----- TITLE ------- -->
         <h1>Welcome To MyBookshelf!</h1>
+
         <div id="left-col">
+    <!-- ---------- REGISTER ---------- -->
             <h3>Register</h3>
-            <div class="username">Username:</div>
-            <input name="text">
 
-            <div class="email">Email:</div>
-            <input name="text">
+            <div>
+                {% for message in get_flashed_messages() %}
+                    <p style="color: red">{{message}}</p>
+                {% endfor %}
+            </div>
 
-            <div class="password">Password</div>
-            <input name="text">
+            <form action = "/users/register" method = "post">
 
-            <div class="confirm">Confirm Password</div>
-            <input name="text">
-            <button>Register</button>
+                <div class="username">Username:
+                    <input name="username">
+                </div>
+
+                <div class="email">Email:
+                    <input name="email">
+                </div>
+
+                <div class="password">Password
+                    <input name="password" type="password">
+                </div>
+
+                <div class="confirm">Confirm Password
+                    <input name="confirm">
+                </div>
+
+                <button class="reg">Register</button>
+            </form>
         </div>
-        <div id="right-col">
-            <h3>Login</h3>
-            <div class="log-user">Username</div>
-            <input name="text">
 
-            <div class="log-pass">Password</div>
-            <input name="text">
-            <button>Register</button>
+        <div id="right-col">
+        <!-- ------------ LOGIN ----------- -->
+            <h3>Login</h3>
+
+            <form action="/users/login" method="post">
+
+                <div class="log-user">Username
+                    <input name="username">
+                </div>
+
+                <div class="log-pass">Password
+                    <input name="password" type="password">
+                </div>
+
+                <button class="login">Login</button>
+            </form>
         </div>
     </container>
 </body>
