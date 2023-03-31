@@ -4,37 +4,92 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyBookshelf Edit Page</title>
+    <title>MyBookshelf Edit Book</title>
 </head>
 <body>
     <container>
-                                                        <!-- ADD IN INPUT BOXES WITH PREFILLED INFORMATION FOR EDIT PAGE -->
+                                    <!-- ADD IN INPUT BOXES WITH PREFILLED INFORMATION FOR EDIT PAGE -->
         <header>
             <h1>MyBookshelf</h1>
-            <h2>Welcome (user)</h2>
+            <h2>Welcome {{logged_user.first_name}}</h2>
             <p>dark/light mode button</p>
             <p>Logout</p>
         </header>
+
         <div id="add">
             Add a Book
         </div>
+
+        <h1>Edit {{this_recipe}}</h1>
+
+    <form action="/recipes/edit" method="post">
+        <input type="hidden" name="user_id" value="{{session.user_id}}">
         <img name="book_img">
-        <p class="T-A">
-            <p>Title</p>
-            <p>Author</p>
-        </p>
+        <div class="T-A">
+            <p>Title:
+                <input name="name" value="{{this_recipe.name}}">
+            </p>
+            <p>Author:
+                <input name="name" value="{{this_recipe.name}}">
+            </p>
+        </div>
+
         <p class="count">
-            <p>Chapters</p>
-            <p>Word Count</p>
+            <p>Chapters:
+                <input name="name" value="{{this_recipe.name}}">
+            </p>
+            <p>Word Count:
+                <input name="name" value="{{this_recipe.name}}">
+            </p>
         </p>
-        <p class="tools">
-            <a href="edit">Edit</a>
-            <a href="delete">Delete</a>
-        </p>
-        <!-- TEXT BOX -- DESCRIPTION -->
-        <!-- complete/ Incomplete -->
-        <!-- read / Not Read -->
-        <!-- Download / Not Downloaded -->
+
+        <div class="description">
+            Description:<br>
+            <textarea name="description" cols="30" rows="4">{{this_recipe.description}}</textarea>
+        </div>
+
+        <div class="completes">
+            <p class="completed">
+                Completed
+                <input type="radio" name="com" value="1"
+                {% if this_recipe.under_thirty == 1 %}
+                checked
+                {% endif %}>
+                Not Completed
+                <input type="radio" name="com" value="0"
+                {% if this_recipe.under_thirty == 0 %}
+                checked
+                {% endif %}>
+            </p>
+        </div>
+
+        <div class="read">
+            Read
+            <input type="radio" name="reads" value="1"
+                {% if this_recipe.under_thirty == 1 %}
+                checked
+                {% endif %}>
+            Not Read
+            <input type="radio" name="reads" value="0"
+                {% if this_recipe.under_thirty == 0 %}
+                checked
+                {% endif %}>
+        </div>
+
+        <div class="download">
+            Downloaded
+            <input type="radio" name="dnl" value="1"
+                {% if this_recipe.under_thirty == 1 %}
+                checked
+                {% endif %}>
+            Not Downloaded
+            <input type="radio" name="dnl" value="0"
+                {% if this_recipe.under_thirty == 0 %}
+                checked
+                {% endif %}>
+        </div>
+        <button>Edit</button>
+
         <span id="spotify">
             <!-- ADD SPOTIFY API!!!!!!!!!!!!!! -->
         </span>

@@ -10,7 +10,7 @@
     <container>
         <header>
             <h1>MyBookshelf</h1>
-            <h2>Welcome (user)</h2>
+            <h2>Welcome {{logged_user.first_name}}</h2>
             <p>dark/light mode button</p>
             <p>Logout</p>
         </header>
@@ -23,34 +23,46 @@
         </div>
         <hr>
         <div class="recent-book">
+            {% for one_recipe in all_recipes : %}
             <div class="recent_1"
                 img class="img_1">
                 <p>Title</p>
-                <a href="edit">Edit |</a>
-                <a href="delete">Delete</a>
+                {% if session['user_id'] == one_recipe.user_id %}
+                    <a href="edit">Edit |</a>
+                    <a href="delete">Delete</a>
+                {% endif %}
             </div>
+            {% endfor %}
             </div>
         </div>
         <div id="lists">
+            {% for one_recipe in all_recipes : %}
             <h3>Lists</h3>
             <hr>
             <div class="list_1">
+                {% if session['user_id'] == one_recipe.user_id %}
                 img class="img_1">
                 <p>Title</p>
                 <a href="edit">Edit |</a>
                 <a href="delete">Delete</a>
+                {% endif %}
+            {% endfor %}
             </div>
         <div id="books">
             <div class="books-bar">
+            {% for one_recipe in all_recipes : %}
                 <h3>Books</h3>
                 <input name="dropdown">
             </div>
             <hr>
             <div class="book_1">
+                {% if session['user_id'] == one_recipe.user_id %}
                 img class="img_1">
                 <p>Title</p>
                 <a href="edit">Edit |</a>
                 <a href="delete">Delete</a>
+                {% endif %}
+            {% endfor %}
             </div>
         </div>
         </div>

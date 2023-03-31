@@ -10,7 +10,7 @@
     <container>
         <header>
             <h1>MyBookshelf</h1>
-            <h2>Welcome (user)</h2>
+            <h2>Welcome {{logged_user.first_name}}</h2>
             <p>dark/light mode button</p>
             <p>Logout</p>
         </header>
@@ -19,21 +19,61 @@
         </div>
         <img name="book_img">
         <p class="T-A">
-            <p>Title</p>
-            <p>Author</p>
+            <p>Title:
+                {{this_recipe.name}}</p>
+            <p>Author"
+                {{this_recipe.name}}
+            </p>
         </p>
         <p class="count">
-            <p>Chapters</p>
-            <p>Word Count</p>
+            <p>Chapters:
+                {{this_recipe.name}}
+            </p>
+            <p>Word Count:
+                {{this_recipe.name}}
+            </p>
         </p>
+
+        <div class="checks">
+            <p class="com">
+                {% if this_recipe.under_thirty == 1 %}
+                    Completed
+                {% else %}
+                    Not Completed
+                {% endif %}
+            </p>
+            <p class="read">
+                {% if this_recipe.under_thirty == 1 %}
+                    Read
+                {% else %}
+                    Not Read
+                {% endif %}
+            </p>
+            <p class="com">
+                {% if this_recipe.under_thirty == 1 %}
+                    Completed
+                {% else %}
+                    Not Completed
+                {% endif %}
+            </p>
+            <p class="com">
+                {% if this_recipe.under_thirty == 1 %}
+                    Downloaded
+                {% else %}
+                    Not Completed
+                {% endif %}
+            </p>
+        </div>
+
+        <div class="description">
+            Description: {{this_recipe.creator.description}}
+        </div>
+
         <p class="tools">
             <a href="edit">Edit</a>
             <a href="delete">Delete</a>
         </p>
-        <!-- TEXT BOX -- DESCRIPTION -->
-        <!-- complete/ Incomplete -->
-        <!-- read / Not Read -->
-        <!-- Download / Not Downloaded -->
+
         <span id="spotify">
             <!-- ADD SPOTIFY API!!!!!!!!!!!!!! -->
         </span>

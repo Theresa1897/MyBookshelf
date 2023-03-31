@@ -10,28 +10,58 @@
     <container>
         <header>
             <h1>MyBookshelf</h1>
-            <h2>Welcome (user)</h2>
+            <h2>Welcome {{logged_user.first_name}}</h2>
             <p>dark/light mode button</p>
             <p>Logout</p>
         </header>
                                                     <!-- ADD NECESSARY INPUTS FOR EMPTY INPUT BOXES AND WHAT NOT -->
         <img name="book_img">
         <p class="T-A">
-            <p>Title</p>
-            <p>Author</p>
+    <form action="/recipes/create" method="post">
+        <input type="hidden" name="user_id" value="{{session.user_id}}">
+            <p>Title
+                <input name="title">
+            </p>
+            <p>Author
+                <input name="author">
+            </p>
         </p>
         <p class="count">
-            <p>Chapters</p>
-            <p>Word Count</p>
+            <p>Chapters
+                <input name="chapters">
+            </p>
+            <p>Word Count
+                <input name="count">
+            </p>
         </p>
-        <p class="tools">
-            <a href="edit">Edit</a>
-            <a href="delete">Delete</a>
+
+        <p class="description">
+            Description:<br>
+            <textarea name="description" cols="30" rows="4"></textarea>
         </p>
-        <!-- TEXT BOX -- DESCRIPTION -->
-        <!-- complete/ Incomplete -->
-        <!-- read / Not Read -->
-        <!-- Download / Not Downloaded -->
+
+        <div class="com">
+            Completed
+            <input type="radio" name="under_thirty" value="1">
+            Not Completed
+            <input type="radio" name="under_thirty" value="0">
+        </div>
+
+        <div class="read">
+            Read
+            <input type="radio" name="under_thirty" value="1">
+            Not Read
+            <input type="radio" name="under_thirty" value="0">
+        </div>
+
+        <div class="dnl">
+            Downloaded
+            <input type="radio" name="under_thirty" value="1">
+            Not Downloaded
+            <input type="radio" name="under_thirty" value="0">
+        </div>
+        <button>Add Book</button>
+
         <span id="spotify">
             <!-- ADD SPOTIFY API!!!!!!!!!!!!!! -->
         </span>
